@@ -1,0 +1,13 @@
+<div class="container">
+  <h3>Here is a list of Venues:</h3>
+  <%if @venues.any?()%>
+     <ul>
+        <% @venues.each do |venue| %>
+      	<li> <%= venue.title()%></li> 
+        <% end %>
+     </ul>
+     <%else%> 
+        <p>There are no venues in the list yet!</p>
+     <% end %>
+<br>
+</div>

@@ -34,6 +34,11 @@ delete '/bands/:id' do
    erb(:band)
  end 
 
+get '/venues/' do
+  @venues = Venue.all()
+  erb(:venues)
+end	
+
 
 
 
