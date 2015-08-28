@@ -2,14 +2,20 @@
   <%if @bands.any?()%>
      <ul>
         <% @bands.each do |band| %>
-      	<li> <%= band.name()%></li>
-        <% end %>
+      	<li> <a href="/bands/<%= band.id() %>"><%= band.name()%></a> 
+          <form action="/bands/<%= band.id() %>" method="post">
+            <div class='form-group'>
+              <input type="hidden" name="_method" value="delete">
+              <button class= "btn btn-danger btn-xs" type="submit">Delete</button>
+            </div>
+          </form>
+        </li> 
+   <% end %>
      </ul>
      <%else%> 
         <p>There are no bands in the list yet!</p>
      <% end %>
 <br>
-
 <form action="/bands/new" method="post">
    <div class='form-group'>
       <label for="name">Add a band</label>
@@ -19,3 +25,4 @@
   </form>
 </div>
 
+ <button class= "btn btn-default"><a href="/">Back</a></button>

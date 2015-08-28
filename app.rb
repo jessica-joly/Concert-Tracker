@@ -17,6 +17,15 @@ post '/bands/new' do
   redirect '/bands/'
 end	
 
+get '/bands/:id' do
+  @band = Band.find(params['id'].to_i())
+  erb(:band)	
+end	
+
+
+
+
+
 
 
 #Add a new ingredient to the list of existing ingredients (view post /recipe/:id)
