@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>Here is a list of Venues:</h3>
+  <h3>Here is a list of venues:</h3>
   <%if @venues.any?()%>
      <ul>
         <% @venues.each do |venue| %>
@@ -10,4 +10,15 @@
         <p>There are no venues in the list yet!</p>
      <% end %>
 <br>
+  <form action="/venues/new" method="post">
+     <div class='form-group'>
+       <label for="title">Add a Venue</label>
+       <input type="text" name="title" class='form-control'>
+       <br>
+       <button type="submit">Submit</button>
+     </div>   
+  </form>
+
+<button class= "btn btn-default"><a href="/">Back to Home Page</a></button>
+<button class= "btn btn-default"><a href="/bands/">View a list of bands</a></button>
 </div>

@@ -17,26 +17,38 @@ post '/bands/new' do
   redirect '/bands/'
 end	
 
-get '/bands/:id' do
-  @band = Band.find(params['id'].to_i())
+get '/band/:id' do
+  @band = Band.find(params['id'].to_i())	
   erb(:band)	
 end	
+
+patch '/band/:id' do
+  @band = Band.find(params['id'].to_i())
+  @band.update({name: params['name']})
+  redirect back
+end 
+
+post '/band/:id' do
+  @band = Band.find(params['id'].to_i())
+  @venue = Venue.create({title: params['title']})
+  @band.venues.push(@venue)
+  erb(:band)
+end
 
 delete '/bands/:id' do
   @band = Band.find(params['id'].to_i())
   @band.destroy()
   redirect '/bands/'
- end 
-
- patch '/band/:id' do
-   @band = Band.find(params['id'].to_i())
-   @band.update({name: params['name']})
-   erb(:band)
- end 
+end 
 
 get '/venues/' do
   @venues = Venue.all()
   erb(:venues)
+end	
+
+post '/venues/new' do
+  @venue = Venue.create({title: params['title']})	
+  redirect '/venues/'
 end	
 
 

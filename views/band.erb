@@ -1,5 +1,12 @@
 <h1><%= @band.name %></h1>
 
+<h4>Venues:</h4>
+  <ul>
+    <% @band.venues.each do |venue| %>
+      <li><%= venue.title %></a></li>
+    <% end %>
+  </ul>
+
   <form action="/band/<%= @band.id %>" method="post">
     <div class='form-group'>
       <input type="hidden" name="_method" value="patch">
@@ -9,4 +16,16 @@
     </div>
   </form>
 
+  <form action="/band/<%= @band.id%>" method="post">
+    <div class='form-group'>
+      <input type="hidden" name="_method" value="post">
+      <label for="title">Add a Venue</label>
+      <input type="text" name="title" class='form-control'><br>
+      <button class= "btn btn-default"type="submit">Add</button>
+    </div>
+  </form>
+
+
 <button class= "btn btn-default"><a href="/bands/">Back</a></button>
+
+

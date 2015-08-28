@@ -3,8 +3,8 @@
   <%if @bands.any?()%>
      <ul>
         <% @bands.each do |band| %>
-      	<li> <a href="/bands/<%= band.id() %>"><%= band.name()%></a> 
-          <form action="/bands/<%= band.id() %>" method="post">
+      	<li> <a href="/band/<%= band.id() %>"><%= band.name()%></a> 
+          <form action="/band/<%= band.id() %>" method="post">
             <div class='form-group'>
               <input type="hidden" name="_method" value="delete">
               <button class= "btn btn-danger btn-xs" type="submit">Delete</button>
@@ -28,5 +28,17 @@
 </form>
   
  <button class= "btn btn-default"><a href="/">Back</a></button>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
