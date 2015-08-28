@@ -3,14 +3,18 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 
-get '/'  do
-  @bands = Band.all()	
+get '/'  do	
   erb(:index)
 end
 
+get '/bands/' do
+  @bands = Band.all()
+  erb(:bands)
+end	
+
 post '/bands/new' do
   @band = Band.create({name: params['name']})
-  redirect '/'
+  redirect '/bands/'
 end	
 
 

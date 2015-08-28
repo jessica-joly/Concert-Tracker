@@ -1,17 +1,18 @@
 require 'spec_helper'
 
 describe 'create band path', {type: :feature} do
-  it 'allows view to see the list of bands' do
+  it 'allows viewers to see the list of bands' do
   	visit '/'
-  	expect(page).to have_content 'here are no bands in the list yet!'
+  	click_link 'View All Bands'
+  	expect(page).to have_content 'Here is a list of bands:'
   end	
-  
+
 
   it 'can add a new band' do
-    visit '/'
-  	fill_in 'name', with: 'Drake'
+    visit '/bands/'
+  	fill_in 'name', with: 'Arcade fire'
   	click_button 'Submit'
-  	expect(page).to have_content 'Drake'  
+  	expect(page).to have_content 'Arcade fire'  
  end	
 
 end 
