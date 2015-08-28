@@ -4,8 +4,15 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 
 get '/'  do
+  @bands = Band.all()	
   erb(:index)
 end
+
+post '/bands/new' do
+  @band = Band.create({name: params['name']})
+  redirect '/'
+end	
+
 
 
 #Add a new ingredient to the list of existing ingredients (view post /recipe/:id)

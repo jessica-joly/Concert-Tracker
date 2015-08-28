@@ -1,0 +1,25 @@
+ <h1>Welcome to the Portland Concert Tracker!</h1>
+
+ <h3>Here is a list of bands:</h3>
+    <%if @bands.any?()%>
+      <ul>
+        <% @bands.each do |band| %>
+      	<li> <%= band.name()%></li>
+        <% end %>
+      </ul>
+     <%else%> 
+      <p>There are no bands in the list yet!</p>
+     <% end %>
+<br>
+<p>Add a band</p>
+
+  <form action="/bands/new" method="post">
+    <div class='form-group'>
+      <label for="name">Add a band</label>
+      <input type="text" name="name" class='form-control'>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+

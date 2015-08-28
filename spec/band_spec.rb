@@ -9,7 +9,6 @@ describe(Band) do
     end	
   end
    
-  
   describe('#capitalize') do
     it 'capitalizes the band name' do
       test_band = Band.create({:name => 'nirvana'})
