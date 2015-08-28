@@ -28,6 +28,12 @@ delete '/bands/:id' do
   redirect '/bands/'
  end 
 
+ patch '/band/:id' do
+   @band = Band.find(params['id'].to_i())
+   @band.update({name: params['name']})
+   erb(:band)
+ end 
+
 
 
 
