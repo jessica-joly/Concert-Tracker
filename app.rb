@@ -22,6 +22,11 @@ get '/bands/:id' do
   erb(:band)	
 end	
 
+delete '/bands/:id' do
+  @band = Band.find(params['id'].to_i())
+  @band.destroy()
+  redirect '/bands/'
+ end 
 
 
 
