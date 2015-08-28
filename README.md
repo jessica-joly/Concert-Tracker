@@ -3,6 +3,9 @@
   Contributors:
  JessicaJoly
 
+  Description:
+  This simple ruby application allows you to view, update and add bands to a list. It also allows you to see which venues a band has played at and to update that list. You can also view a list of all the venues in the area. 
+
   Setup
 
 * Download the Repo

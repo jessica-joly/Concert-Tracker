@@ -15,20 +15,18 @@ describe 'create venue path', {type: :feature} do
   end	
 
   it 'shows all the venues that a band has played' do
-    test_band = Band.create({:name => 'Modest Mouse'})
+    test_band = Band.create({:name => 'Modest mouse'})
     test_venue1 = Venue.create({:title=> "Commodore", :band_ids => [test_band.id()]})
     test_venue2 = Venue.create({:title=> "Metropolis", :band_ids => [test_band.id()]})
     expect(test_band.venues()).to(eq([test_venue1, test_venue2]))
   end
  
-
   it 'can add a venue to a specific band' do
     band = Band.create({name: 'Arcade fire'})
-    venue = Venue.create({title: => 'Commodore'})
+    venue = Venue.create({:title => 'Commodore'})
     visit "/band/#{band.id()}"	
-    fill_in 'title', with: 'Commodore'
-    click_button 'Add'
-    #visit "/ingredient/#{ingredient.id}"
+    select('Commodore', from: 'venue_id')
+    click_button 'Add Venue'
     expect(page).to have_content 'Commodore'
   end
 

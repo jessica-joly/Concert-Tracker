@@ -32,9 +32,9 @@ describe 'create band path', {type: :feature} do
   it 'allows the user to update the name of the band' do
     band = Band.create({name: 'Arcade fire'})
     visit "/band/#{band.id()}"	
-    fill_in 'name', with: "Modest Mouse"
+    fill_in 'name', with: "Modest mouse"
     click_button 'Update'
-    expect(page).to have_content "Modest Mouse"
+    expect(page).to have_content "Modest mouse"
   end	
 end
   

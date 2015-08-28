@@ -18,7 +18,8 @@ post '/bands/new' do
 end	
 
 get '/band/:id' do
-  @band = Band.find(params['id'].to_i())	
+  @band = Band.find(params['id'].to_i())
+  @venues = Venue.all()	
   erb(:band)	
 end	
 
@@ -30,12 +31,12 @@ end
 
 post '/band/:id' do
   @band = Band.find(params['id'].to_i())
-  @venue = Venue.create({title: params['title']})
-  @band.venues.push(@venue)
+  venue = Venue.find(params['venue_id'].to_i())
+  @band.venues.push(venue)
   erb(:band)
 end
 
-delete '/bands/:id' do
+delete '/band/:id' do
   @band = Band.find(params['id'].to_i())
   @band.destroy()
   redirect '/bands/'
@@ -54,17 +55,3 @@ end
 
 
 
-
-
-#Add a new ingredient to the list of existing ingredients (view post /recipe/:id)
-#recipe.ingredients.push(new_ingredient)
-
-#Ingredient.new({:recipe_ids = [recipe.id()]})
-#create new ingredient and associate with recipe at the same time 
-
-#recipe.ingredients.destroy(ingredient)
-#remove an ingredient from a recipe 
-
-
-#recipe.update({:ingredient_ids =>[ingredient.id()]})
-#update all of a recipe's ingredients or ingredient's recipes
