@@ -28,7 +28,6 @@ describe 'create band path', {type: :feature} do
   	expect(page).to have_content 'Arcade fire'  
   end	
 
-#does not pass!!!!
   it 'allows the user to update the name of the band' do
     band = Band.create({name: 'Arcade fire'})
     visit "/band/#{band.id()}"	

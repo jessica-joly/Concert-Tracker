@@ -1,6 +1,7 @@
+<div class="container">
 <h1><%= @band.name %></h1>
 
-<h4>Venues this band has already played:</h4>
+<h5>Venues this band has already played:</h5>
   <ul>
     <% @band.venues.each do |venue| %>
       <li><%= venue.title %></a></li>
@@ -16,19 +17,18 @@
     </div>
   </form>
 
-  
-
-<form action="/band/<%= @band.id%>" method="post">
-  <label for="venue_id">Select a Venue</label>
-  <select id='venue_id' name='venue_id' type='text'>
-    <% Venue.all.each() do |venue| %>
+  <form action="/band/<%= @band.id%>" method="post">
+    <label for="venue_id">Select a Venue</label>
+    <select id='venue_id' name='venue_id' type='text'>
+      <% Venue.all.each() do |venue| %>
       <option value="<%= venue.id()%>"> <%= venue.title() %> </option>
     <% end %>
-  </select>
-  <button type="submit">Add Venue</button>
-</form>
-
+    </select>
+    <button type="submit">Add Venue</button>
+  </form>
 
 <button class= "btn btn-default"><a href="/bands/">Back</a></button>
+
+</div>
 
 
